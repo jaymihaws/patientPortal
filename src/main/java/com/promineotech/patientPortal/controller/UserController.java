@@ -1,6 +1,7 @@
 package com.promineotech.patientPortal.controller;
 
 import javax.naming.AuthenticationException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,14 +17,14 @@ import com.promineotech.patientPortal.service.AuthService;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
+	
 	@Autowired
 	private AuthService authService;
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<Object> register(@RequestBody Credentials cred) {
 		try {
-			return new ResponseEntity<Object>(authService.register(cred), HttpStatus.CREATED);
+			return new ResponseEntity<Object>(authService.register(cred, "USER"), HttpStatus.CREATED);
 		} catch (AuthenticationException e) {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
@@ -37,19 +38,15 @@ public class UserController {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 		}
 	}
-//	
-//	@RequestMapping(value = "/adminregister", method = RequestMethod.POST)
-//	public ResponseEntity<Object> adminregister(@RequestBody Admin admin, HttpServletRequest request) {
-//		return new ResponseEntity<Object>(service.createAdmin(admin), HttpStatus.CREATED);
-//	}
-//
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public ResponseEntity<Object> admin(@RequestBody Admin patient) {
-//		try {
-//			return new ResponseEntity<Object>(service.login(admin), HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
-//		}
-//	}
+	
+	@RequestMapping(value = "/adminregister", method = RequestMethod.POST)
+	public ResponseEntity<Object> adminRegister(@RequestBody Credentials cred, HttpServletRequest request) {
+		try {
+			return new ResponseEntity<Object>(authService.register(cred, "ADMIN"), HttpStatus.CREATED);
+		} catch (AuthenticationException e) {
+			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+	}
+
 
 }

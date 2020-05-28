@@ -68,20 +68,29 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt.api</artifactId>
+			<artifactId>jjwt-api</artifactId>
 			<version>0.10.5</version>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt.impl</artifactId>
+			<artifactId>jjwt-impl</artifactId>
 			<version>0.10.5</version>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt.jackson</artifactId>
+			<artifactId>jjwt-jackson</artifactId>
 			<version>0.10.5</version>
-		</dependency> -->
+		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
