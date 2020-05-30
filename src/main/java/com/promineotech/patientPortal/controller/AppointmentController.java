@@ -2,6 +2,7 @@ package com.promineotech.patientPortal.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.promineotech.patientPortal.entity.Appointment;
-import com.promineotech.patientPortal.entity.Credentials;
 import com.promineotech.patientPortal.service.AppointmentService;
-import com.promineotech.patientPortal.service.AuthService;
+
 
 @RestController
 @RequestMapping("/users/{userId}/appointments")

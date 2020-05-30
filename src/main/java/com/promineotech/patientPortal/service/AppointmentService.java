@@ -2,23 +2,14 @@ package com.promineotech.patientPortal.service;
 
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.promineotech.patientPortal.entity.Appointment;
-import com.promineotech.patientPortal.entity.Credentials;
 import com.promineotech.patientPortal.entity.User;
 import com.promineotech.patientPortal.repository.AppointmentRepository;
 import com.promineotech.patientPortal.repository.UserRepository;
+
 
 @Service
 public class AppointmentService {
